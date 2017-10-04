@@ -1,0 +1,35 @@
+<!-- 
+	Email: miftahmizwar@gmail.com
+	Description: It's for rotate youtube. You can paste embed code into filed. and set rotate value.
+	-->
+<html>
+	<head>
+		<title>Youtube Rotate View</title>
+	</head>
+	<body>
+		<div id="content">
+			
+		</div>
+		<div class="form">
+			<form>
+				Rotate (deg)
+				<input type="number" min=0 max=360 placeholder="rotate" name="rotate">
+				<br>
+				Embed script 
+				<input type="text" name="iframe">
+				<br>
+				<button>Submit</button>
+			</form>
+		</div>
+	</body>
+	<script>
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var iframe = url.searchParams.get("iframe");
+		var rotate = url.searchParams.get("rotate");
+		var content = document.getElementById("content");
+    content.innerHTML = iframe;
+    var iframe = document.getElementsByTagName('iframe')[0];
+    iframe.setAttribute("style","transform:rotate("+rotate+"deg);");
+	</script>
+</html>
